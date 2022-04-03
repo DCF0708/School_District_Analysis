@@ -11,13 +11,17 @@ Maria, the chief data scientist for a school district is responsible for prepari
 - How is the District Summary affected?
     - Casting the Thomas High School ninth graders math and reading scores as 'NaN' changes the district summary in several marked ways. Namely in the back-end calculations that used the total number of students to calculate passing percentages. The number of students whos test values return 'NaN' needs to be subtracted from the total population in order to return a percentage that does not include students with dishonest test scores. In doing so, the refactored values for Average Math Score, % Passing Math, % Passing Reading, and % Overall Passing are observed going down in response to losing a subsect of students whos scores reflected passing grades.
 ![](District_Summary_Comparison.png)
+
 <br />
 <br />
+
 - How is the School Summary affected?
     - The School Summary remains greatly unchanged, save for the row containing Thomas High School. The values for THS averages are adjusted to drop the dishonest values for the ninth grade class. By dropping the dishonest values, the classes that tested according to the state-testing standards (10th Grade - 12th Grade) can still be evaluated by the same methods as the rest of the schools. These new averages are calculated and displayed by using a method to locate and replace the dishonest values with the adjusted values leaving the rest of the data frame unchanged. Using this method to replace the tainted values means the data for Thomas High School can still be used to draw conclusions on the school's performance without concern of academic dishonesty. These adjusted averages reveal that the performance of the 10th-12th Graders remains exceptional in comparison to the rest of the schools evaluated. The following image shows the original values in blue followed by the adjusted values in red.
-    ![](School_Comparison.png)
+![](School_Comparison.png)
+
 <br />
 <br />
+
 - How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools?
     - Despite the academic dishonesty, the rest of the students at Thomas High School perform exceptionally well when compared to the rest of the district. After adjusting for the scores of the freshman class, the averages for test scores and passing percentages can be observed dropping by a small fraction of a percentile across the data frame. However, the averages remain very high which attests to the good performance of the school in comparison to the rest of the district (Thomas High School places second overall for % Overall Passing).
 - How does replacing the ninth-grade scores affect the following:
@@ -29,12 +33,16 @@ Maria, the chief data scientist for a school district is responsible for prepari
         - The scores by school size remains unchanged. The medium school bracket displayed in the *size_summary_df* data frame is the bracket that contains Thomas High School. The small subsect of students scores that were removed did not cause the averages to change enough to cause a difference in outcomes.*
     - Scores by school type?
         - The scores by school type remains unchanged. This is due to the small subsect of students scores removed not causing the averages to change enough to cause a difference in outcomes.*
+
 <br />
 <br />
+
 ***NOTE:** By adjusting the formatting to display 5 significant figures past the decimal, a change can be observed. However, the current formatting to 1 or 0 significant figures past the decimal does not allow for the change to be viewed.   
+
 <br />
 
 ## Summary of Changes - Updated School District Analysis
+
 <br />
 
 - The total number of students used to calculate averages for reading scores, math scores, and overall passing percentages in the *district_summary_df* has been adjusted to reflect the population minus the freshman class of Thomas High School. These students are not included in these calculations to maintain academic integrity.
